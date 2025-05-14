@@ -170,6 +170,10 @@ app.patch('/api/dreams/:id', authenticateUser, async (req, res) => {
     }
 });
 
+app.all('*', (req, res) => {
+    res.status(404).json({message: 'Cette route n\'existe pas'})
+})
+
 app.listen(port, () => {
     console.log(`Server is running on http://localhost:${port}`);
 });
